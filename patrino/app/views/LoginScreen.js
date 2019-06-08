@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import {StyleSheet, View, TextInput} from "react-native";
+import {StyleSheet, View, TextInput, Alert} from "react-native";
 
 import {ThemeProvider, Button } from "react-native-elements";
 
@@ -14,9 +14,48 @@ export default class LoginScreen extends Component {
     };
   }
 
+  /*Definindo as credenciais do usuário*/
+  async login(responseJson) {
+    try {
+      if(responseJson.message == "OK") {
+        await AsyncStorage.setItem('code', "" + responseJson.code);
+        await AsyncStorage.setItem('logging', "true");
+
+        this.props.navigation.navigate("MainScreen");
+
+      }
+    } catch (error) {
+      console.debug(error);
+    }
+  };
+
   async onLoginPress() {
-    console.log(this.state.email);
-    console.log(this.state.password);
+    const email = this.state.email;
+    const password = this.state.password;
+
+    return fetch('http://200.137.131.118:1234/login', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        }),
+      })
+      .then((response) => response.json())
+      .then((responseJson) => {
+          if(responseJson.message == "OK") {
+            this.login(responseJson);
+          } else {
+            Alert.alert("E-mail ou senha estão incorretos!");
+          }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
   }
 
   render() {
@@ -40,6 +79,7 @@ export default class LoginScreen extends Component {
               placeholder="Senha"
               returnKeyType="go"
               secureTextEntry
+              autoCapitalize="none"
               ref={input => (this.passwordInput = input)}
               onChangeText={(password) => this.setState({password})}              />
 
