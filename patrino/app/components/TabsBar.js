@@ -6,6 +6,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Home from "./Home";
+import News from "./News";
 
 export default class TabsBar extends Component {
   constructor(props) {
@@ -31,14 +32,14 @@ export default class TabsBar extends Component {
           </TabNavigator.Item>
 
           <TabNavigator.Item
-            title="Testes"
-            selected={this.state.selectedTab === 'profile'}
-            onPress={() => this.setState({selectedTab: 'profile'})}
+            title="Notícias"
+            selected={this.state.selectedTab === 'news'}
+            onPress={() => this.setState({selectedTab: 'news'})}
             renderIcon={() => <Icon name="user" />}
             renderSelectedIcon={() => <Icon name="user" />}
             selectedTitleStyle={{color: "#3496f0"}}
           >
-            <Text>Profile</Text>
+            <News />
           </TabNavigator.Item>
         </TabNavigator>
 
