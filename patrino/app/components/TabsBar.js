@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Home from "./Home";
 import News from "./News";
+import Giver from "./Giver";
 
 export default class TabsBar extends Component {
   constructor(props) {
@@ -24,6 +25,17 @@ export default class TabsBar extends Component {
             title="Início"
             selected={this.state.selectedTab === 'home'}
             onPress={() => this.setState({selectedTab: 'home'})}
+            renderIcon={() => <Icon name="home" />}
+            renderSelectedIcon={() => <Icon name="home" />}
+            selectedTitleStyle={{color: "#3496f0"}}
+          >
+            <Home />
+          </TabNavigator.Item>
+
+          <TabNavigator.Item
+            title="Doadoras"
+            selected={this.state.selectedTab === 'giver'}
+            onPress={() => this.setState({selectedTab: 'giver'})}
             renderIcon={() => <Icon name="home" />}
             renderSelectedIcon={() => <Icon name="home" />}
             selectedTitleStyle={{color: "#3496f0"}}
