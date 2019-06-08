@@ -1,28 +1,53 @@
 import React, {Component} from "react";
 
-import {StyleSheet, View} from "react-native";
+import {StyleSheet, View, TextInput} from "react-native";
 
-import {ThemeProvider, Input, Button } from "react-native-elements";
+import {ThemeProvider, Button } from "react-native-elements";
 
 export default class LoginScreen extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      "email": "",
+      "password": ""
+    };
+  }
+
+  async onLoginPress() {
+    console.log(this.state.email);
+    console.log(this.state.password);
+  }
+
   render() {
     return(
       <ThemeProvider style={styles.container}>
         <View style={styles.form}>
           <View style={styles.item}>
-            <Input
-              placeholder='E-mail'
+            <TextInput
+              placeholder="E-mail"
+              returnKeyType="next"
+              onSubmitEditing={() => this.passwordInput.focus()}
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoCorrect={false}
+              onChangeText={(email) => this.setState({email})}
             />
           </View>
 
           <View style={styles.item}>
-            <Input
-              placeholder='Senha'
-            />
+            <TextInput
+              placeholder="Senha"
+              returnKeyType="go"
+              secureTextEntry
+              ref={input => (this.passwordInput = input)}
+              onChangeText={(password) => this.setState({password})}              />
+
           </View>
 
           <View style={styles.item}>
             <Button
+              onPress={this.onLoginPress.bind(this)}
               style={styles.item}
               title="Entrar"
             />
