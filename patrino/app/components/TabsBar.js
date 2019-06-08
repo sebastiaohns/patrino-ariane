@@ -5,6 +5,8 @@ import {Text} from "react-native";
 import TabNavigator from 'react-native-tab-navigator';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import Home from "./Home";
+
 export default class TabsBar extends Component {
   constructor(props) {
       super(props);
@@ -25,7 +27,7 @@ export default class TabsBar extends Component {
             renderSelectedIcon={() => <Icon name="home" />}
             selectedTitleStyle={{color: "#3496f0"}}
           >
-            <Text>Home</Text>
+            <Home />
           </TabNavigator.Item>
 
           <TabNavigator.Item
