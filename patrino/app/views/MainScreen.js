@@ -8,6 +8,11 @@ import MainHeader from "../components/MainHeader";
 import TabsBar from "../components/TabsBar";
 
 export default class MainScreen extends Component {
+  /*Eliminando header padrão*/
+  static navigationOptions = {
+    header: null
+  };
+  
   render() {
     return(
       <ThemeProvider>
