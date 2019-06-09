@@ -40,7 +40,7 @@ export default class TabsBar extends Component {
             renderSelectedIcon={() => <Icon name="home" />}
             selectedTitleStyle={{color: "#3496f0"}}
           >
-            <Home />
+            <Giver />
           </TabNavigator.Item>
 
           <TabNavigator.Item
