@@ -4,7 +4,14 @@ import {StyleSheet, View, TextInput, Alert} from "react-native";
 
 import {ThemeProvider, Button } from "react-native-elements";
 
+import AsyncStorage from '@react-native-community/async-storage';
+
 export default class LoginScreen extends Component {
+  /*Eliminando header padrão*/
+  static navigationOptions = {
+    header: null
+  };
+  
   constructor(props) {
     super(props);
 
