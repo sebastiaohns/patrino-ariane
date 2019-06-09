@@ -12,11 +12,11 @@ export default class MainScreen extends Component {
   static navigationOptions = {
     header: null
   };
-  
+
   render() {
     return(
       <ThemeProvider>
-        <MainHeader />
+        <MainHeader navigation={this.props.navigation}/>
 
         <TabsBar />
       </ThemeProvider>

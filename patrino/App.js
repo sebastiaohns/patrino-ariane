@@ -15,6 +15,7 @@ import {
 /*Importando componentes de telas*/
 import LoginScreen from "./app/views/LoginScreen";
 import MainScreen from "./app/views/MainScreen";
+import ProfileScreen from "./app/views/ProfileScreen";
 
 class Home extends Component {
   constructor(props) {
@@ -80,6 +81,12 @@ const App = createStackNavigator({
     screen: MainScreen,
     navigationOptions: {
       title: "MainScreen"
+    }
+  },
+  ProfileScreen: {
+    screen: ProfileScreen,
+    navigationOptions: {
+      title: "ProfileScreen"
     }
   },
 });
