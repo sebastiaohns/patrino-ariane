@@ -16,7 +16,7 @@ export default class MainScreen extends Component {
   render() {
     return(
       <ThemeProvider>
-        <MainHeader />
+        <MainHeader navigation={this.props.navigation}/>
 
         <TabsBar />
       </ThemeProvider>

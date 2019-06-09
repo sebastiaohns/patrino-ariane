@@ -14,6 +14,7 @@ export default class MainHeader extends Component {
         centerComponent={{ text: 'Patrino', style: { color: '#fff' } }}
         rightComponent={<View>
                           <Avatar
+                            onPress={() => this.props.navigation.navigate("ProfileScreen") }
                             rounded
                             source={require('../resources/team-3-800x800.jpg')}
                           />
